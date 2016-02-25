@@ -1,0 +1,42 @@
+.container, footer{
+    font-family: 'Roboto', Helvetica, sans-serif;
+}
+.banner{
+    background-image: url("../assets/banner_carleton.jpg");
+}
+.banner{
+    height:500px;
+}
+.navbar-inverse{
+    margin-bottom: 0;
+}
+#banner_text{
+    padding: 250px 0;
+    text-align: center
+}
+#actions{
+    background-color: #f5f5f5;
+}
+#actions .col-md-4{
+    text-align: center;
+    padding: 40px;
+}
+#actions p{
+    padding-bottom: 20px;
+}
+
+#sign_up_form{
+    padding: 100px 0;
+}
+
+#log_in_form{
+    padding: 170px 0;
+}
+footer{
+    text-align: center;
+    background-color:#14A645;
+}
+
+footer p{
+    padding: 50px 0;
+}
