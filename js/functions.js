@@ -3,6 +3,7 @@ function switchToHome(){
 	document.getElementById("signUpForm").style.display = "None";
 	document.getElementById("logInForm").style.display = "None";
 	document.getElementById("notes").style.display = "None";
+	document.getElementById("newNote").style.display = "None";
 }
 
 function switchToSignUp(){
@@ -10,6 +11,7 @@ function switchToSignUp(){
 	document.getElementById("signUpForm").style.display = "Block";
 	document.getElementById("logInForm").style.display = "None";
 	document.getElementById("notes").style.display = "None";
+	document.getElementById("newNote").style.display = "None";
 }
 
 function switchToLogin(){
@@ -17,6 +19,7 @@ function switchToLogin(){
 	document.getElementById("signUpForm").style.display = "None";
 	document.getElementById("logInForm").style.display = "Block";
 	document.getElementById("notes").style.display = "None";
+	document.getElementById("newNote").style.display = "None";
 }
 
 function switchToNotes(){
@@ -24,6 +27,20 @@ function switchToNotes(){
 	document.getElementById("signUpForm").style.display = "None";
 	document.getElementById("logInForm").style.display = "None";
 	document.getElementById("notes").style.display = "Block";
+	document.getElementById("newNote").style.display = "None";
+	
+	document.getElementById("icon").innerHTML = "<a class='navbar-brand' href='#'  onClick='switchToAddNote()' style='padding-top:5px'>"+
+                        "<img alt='Brand' src='assets/homeIcon.png' style='width:200px'>"+
+                    "</a>";
+	document.getElementById("cornerButtonBox").innerHTML = "<li><a  onclick='switchToAddNote()'>Add Note</a></li>";
+}
+
+function switchToAddNote(){
+	document.getElementById("homePage").style.display = "None";
+	document.getElementById("signUpForm").style.display = "None";
+	document.getElementById("logInForm").style.display = "None";
+	document.getElementById("notes").style.display = "None";
+	document.getElementById("newNote").style.display = "Block";
 }
 
 function logIn(){
@@ -31,6 +48,8 @@ function logIn(){
 		alert("Please enter a username");
 	}else if(!validateField("pwd")){
 		alert("Please enter a password");
+	}else{
+		
 	}
 }
 
@@ -47,6 +66,8 @@ function signUp(){
 		alert("Please enter your last name");
 	}else if(!validateField("email")){
 		alert("Please enter an email address");
+	}else{
+		
 	}
 }
 
@@ -61,7 +82,10 @@ function validateField(id){
 }
 
 function displayNote(title, date, content){
-
+	var possiblyEmpty = document.getElementById("notesPanel").innerHTML;
+	if(possiblyEmpty=="<h2> No Notes to Show </h2>"){
+		possiblyEmpty = "";
+	}
 	document.getElementById("notesPanel").innerHTML += "<div class='col-md-4'>" +
 							"<h3>"+title+"</h3>" +
 							"<h2>"+date+"</h2>" +
