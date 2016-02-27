@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap/bootstrap.css" rel="stylesheet">
         <link href="css/custom.css" rel="stylesheet">
 		<script src="js/functions.js"></script>
         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
-        <title>CUNote</title>
+        <title>cuNote</title>
     </head>
     <body>
         <nav class="navbar navbar-inverse">
@@ -26,7 +26,7 @@
 		<div id="homePage" style="display:block">
 			<div class="banner">
 				<div class="container" id="banner_text">
-					<h1><strong>CUNote</strong></h1>
+					<h1><strong>cuNote</strong></h1>
 					<h2>The best notetaking app for Carleton students.</h2>
 					<a href="signup.html">
 						<button type="button" class="btn btn-default" href="signup.html">Sign up</button>
@@ -56,19 +56,26 @@
 			</div>
 		</div>
 		<div id="loginPage" style="display:none">
-		<div class="banner">
-				<div class="container" id="banner_text">
-					<h1><strong>CUNote</strong></h1>
-					<h2>The best notetaking app for Carleton students.</h2>
-					<a href="signup.html">
-						<button type="button" class="btn btn-default" href="signup.html">Sign up</button>
-					</a>
+			<div id="log_in_form">
+				<div class="container">
+					<h2>Log in</h2>
+					<form role="form">
+						<div class="form-group">
+						   <label for="email">Email address:</label>
+						   <input type="email" class="form-control" id="email">
+						</div>
+						<div class="form-group">
+							<label for="pwd">Password:</label>
+							<input type="password" class="form-control" id="pwd">
+						</div>
+						<button type="submit" class="btn btn-default">Submit</button>
+					</form>
 				</div>
 			</div>
 		</div>
     </body>
 
     <footer>
-        <p> &copy; 2016 Your Name </p>
+        <p> &copy; 2016 cuNote </p>
     <footer>
 </html>
