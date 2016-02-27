@@ -4,12 +4,12 @@ require "connect.php";
 if(isset($_POST["loginName"])){
 	$username = $_POST["loginName"];
 	$password = $_POST["password"];
-	
+
 	$passwordmd5 = md5($password);
 
 	$query = "SELECT * FROM Users WHERE Username = '$username' AND Password = '$passwordmd5'";
 	if($query_run = mysql_query($query)){
-		
+
 		$query_num_rows = mysql_num_rows($query_run);
 		if($query_num_rows == 0){
 			 echo "noUser";
@@ -35,6 +35,24 @@ if(isset($_POST["loginName"])){
 		echo mysql_error();
 	}
 }else if(isset($_POST["signupName"])){
-	echo "signup";
+	$username = $_POST["signupName"];
+	$password = $_POST["signUpPassword"];
+	$firstName = $_POST["firstName"];
+	$lastName = $_POST["lastName"];
+	$email = $_POST["email"];
+	$passwordmd5 = md5($password);
+
+	$query = "SELECT * FROM Users WHERE UserID = '' AND Username = '$username' AND Password = '$passwordmd5' AND First Name = '$firstName' AND Last Name='$lastName' AND Email = '$email' ";
+
+	if($query_run = mysql_query($query)){
+		$query_num_rows = mysql_num_rows($query_run);
+		if($query_num_rows == 0){
+			 echo "noUser";
+		}else if ($query_num_rows == 1){
+			echo "Worked";
+		}
+	}else{
+		echo mysql_error();
+	}
 }
 ?>
