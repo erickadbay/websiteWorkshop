@@ -1,4 +1,3 @@
-
 <?php
 
 $mysql_host = "localhost";
