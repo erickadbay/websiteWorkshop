@@ -63,6 +63,7 @@ function logIn(){
 					alert("Your Username or Password are incorrect");
 				}else{
 					if(reply != "noNotes"){
+						document.getElementById("notesPanel").innerHTML = "";
 						printNotes(reply);
 					}
 					switchToNotes();
@@ -134,6 +135,7 @@ function addNote(){
 			if(ajax.readyState == 4 && ajax.status == 200){
 				var reply = ajax.responseText;
 				if(reply != "noNotes"){
+					document.getElementById("notesPanel").innerHTML = "";
 					printNotes(reply);
 				}
 				switchToNotes();
