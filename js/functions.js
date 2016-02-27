@@ -110,7 +110,7 @@ function signUp(){
 			}
 		}
 		ajax.send("signupName="+ signupName +" & signupPassword="+ password+" & firstName="+ firstName+" & lastName="+ lastName+" & email="+ email);
-	
+
 	}
 }
 
@@ -166,8 +166,14 @@ function validateField(id){
 function displayNote(title, date, contents){
 	var possiblyEmpty = document.getElementById("notesPanel").innerHTML;
 	if(possiblyEmpty.search("<h2> No Notes to Show </h2>")>=0){
-		possiblyEmpty = "<h2> Notes </h2>";
+		document.getElementById("notesPanel").innerHTML = "<h2> Notes </h2><hr class='featurette-divider' style='border-top:1px solid lightgrey;'><div class='col-md-4'>" +
+
+								"<h3>"+title+"</h3>" +
+								"<h2>"+date+"</h2>" +
+								"<p>"+ contents+"</p>" +
+							"</div>";
 	}
+<<<<<<< HEAD
 	document.getElementById("notesPanel").innerHTML += "<hr class='featurette-divider' style='border-top:1px solid lightgrey;'><div class='col-md-4'>" +
 							"<h3>"+title+"</h3>" +
 							"<h2>"+date+"</h2>" +
@@ -181,3 +187,6 @@ function printNotes(reply){
 		displayNote(replyArray[i], replyArray[i+1], replyArray[i+2]);
 	}
 }
+=======
+}
+>>>>>>> origin/master
