@@ -1,19 +1,29 @@
-function switchToLogin(){
-	document.getElementById("homePage").style.display = "None";
-	document.getElementById("logInForm").style.display = "Block";
+function switchToHome(){
+	document.getElementById("homePage").style.display = "Block";
 	document.getElementById("signUpForm").style.display = "None";
+	document.getElementById("logInForm").style.display = "None";
+	document.getElementById("notes").style.display = "None";
 }
 
 function switchToSignUp(){
 	document.getElementById("homePage").style.display = "None";
 	document.getElementById("signUpForm").style.display = "Block";
 	document.getElementById("logInForm").style.display = "None";
+	document.getElementById("notes").style.display = "None";
 }
 
-function switchToHome(){
-	document.getElementById("homePage").style.display = "Block";
+function switchToLogin(){
+	document.getElementById("homePage").style.display = "None";
+	document.getElementById("signUpForm").style.display = "None";
+	document.getElementById("logInForm").style.display = "Block";
+	document.getElementById("notes").style.display = "None";
+}
+
+function switchToNotes(){
+	document.getElementById("homePage").style.display = "None";
 	document.getElementById("signUpForm").style.display = "None";
 	document.getElementById("logInForm").style.display = "None";
+	document.getElementById("notes").style.display = "Block";
 }
 
 function logIn(){
@@ -48,4 +58,13 @@ function validateField(id){
 	}else{
 		return true;
 	}
+}
+
+function displayNote(title, date, content){
+
+	document.getElementById("notesPanel").innerHTML += "<div class='col-md-4'>" +
+							"<h3>"+title+"</h3>" +
+							"<h2>"+date+"</h2>" +
+							"<p>"+ contents+"</p>" +
+						"</div>";
 }

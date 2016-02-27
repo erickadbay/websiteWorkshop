@@ -12,7 +12,7 @@
         <nav class="navbar navbar-inverse">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#"  onClick="switchToHome()" style="padding-top:5px">
+                    <a class="navbar-brand" href="#"  onClick="switchToNotes()" style="padding-top:5px">
                         <img alt="Brand" src="assets/homeIcon.png" style="width:200px">
                     </a>
                 </div>
@@ -31,27 +31,6 @@
 					<a onclick="switchToSignUp()">
 						<button type="button" class="btn btn-default" >Sign Up</button>
 					</a>
-				</div>
-			</div>
-			<div id="actions">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-4">
-							<h3>Action 1</h3>
-							<p>Tote bag small batch tousled craft beer truffaut bicycle rights cornhole poutine gentrify offal hammock, lo-fi salvia echo park keytar. Microdosing gluten-free mustache skateboard selvage occupy, truffaut leggings ramps hashtag fashion axe chillwave.</p>
-							<button type="button" class="btn btn-default" href="#">Learn more</button>
-						</div>
-						<div class="col-md-4">
-							<h3>Action 2</h3>
-							<p>Tote bag small batch tousled craft beer truffaut bicycle rights cornhole poutine gentrify offal hammock, lo-fi salvia echo park keytar. Microdosing gluten-free mustache skateboard selvage occupy, truffaut leggings ramps hashtag fashion axe chillwave.</p>
-							<button type="button" class="btn btn-default" href="#">Learn more</button>
-						</div>
-						<div class="col-md-4">
-							<h3>Action 3</h3>
-							<p>Tote bag small batch tousled craft beer truffaut bicycle rights cornhole poutine gentrify offal hammock, lo-fi salvia echo park keytar. Microdosing gluten-free mustache skateboard selvage occupy, truffaut leggings ramps hashtag fashion axe chillwave.</p>
-							<button type="button" class="btn btn-default" href="#">Learn more</button>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -96,9 +75,19 @@
 				   <label for="email">Email address:</label>
 				   <input class="form-control" id="email">
 				</div>
+				
 				<button onclick="signUp()" class="btn btn-default">Sign Up</button>
             </div>
         </div>
+		<div id="notes" style="display:none">
+			<div id="actions">
+				<div class="container">
+					<div class="row" id="notesPanel">
+						<h2> No Notes to Show </h2>
+					</div>
+				</div>
+			</div>
+		</div>
     </body>
     <footer>
         <p> &copy; 2016 cuNote </p>
