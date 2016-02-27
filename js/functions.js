@@ -50,15 +50,23 @@ function logIn(){
 		alert("Please enter a password");
 	}else{
 		var loginName = document.getElementById("loginName").value;
-		var password = document.getElementById("loginPassword").value;
-		alert("Sent");
+		var password = document.getElementById("loginPassword").value 
+		
 		//Ajax communicates to the php files and databse
 		var ajax = new XMLHttpRequest();
 		ajax.open("POST","server.php",true);
 		ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		ajax.onreadystatechange = function(){
 			if(ajax.readyState == 4 && ajax.status == 200){
-				alert(ajax.responseText);
+				var reply = ajax.responseText;
+				if(reply == "noUser"){
+					alert("Your Username or Password are incorrect");
+				}else{
+					if(reply != "noNotes"){
+						alert(reply);
+					}
+					switchToNotes();
+				}
 			}
 		}
 		ajax.send("loginName="+ loginName +" & password="+ password);
