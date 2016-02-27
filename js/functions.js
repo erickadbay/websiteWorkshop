@@ -166,12 +166,12 @@ function validateField(id){
 function displayNote(title, date, contents){
 	var possiblyEmpty = document.getElementById("notesPanel").innerHTML;
 	if(possiblyEmpty.search("<h2> No Notes to Show </h2>")>=0){
-		document.getElementById("notesPanel").innerHTML = "<h2> Notes </h2>";
+		document.getElementById("notesPanel").innerHTML = "<h1 style='text-align:center; font-weight:bold'> My Notes </h1>";
 	}
 	document.getElementById("notesPanel").innerHTML += "<div class='col-md-4'>" +
-							"<h3>"+title+"</h3>" +
-							"<h2>"+date+"</h2>" +
-							"<p>"+ contents+"</p>" +
+							"<h2 style='font-weight:bold'>"+title+"</h3>" +
+							"<h4>"+date+"</h2>" +
+							"<h3>"+ contents+"</p>" +
 						"</div>";
 }
 
