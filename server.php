@@ -20,12 +20,11 @@ if(isset($_POST["loginName"])){
 				$query_num_rows = mysql_num_rows($query_run2);
 				
 				$reply = "";
-				for($count = 0; $count<=$query_num_rows; $count++){
+				for($count = 0; $count<$query_num_rows; $count++){
 					$title = mysql_result($query_run2, $count, "Title");
 					$date = mysql_result($query_run2, $count, "Date");
 					$content = mysql_result($query_run2, $count, "Content");
-					
-					$reply += $title."/".$date."/".$content."/";
+					$reply .= $title."/".$date."/".$content."/";
 				}
 				if($reply == ""){
 					$reply = "noNotes";
