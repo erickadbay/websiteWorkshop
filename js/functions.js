@@ -63,7 +63,10 @@ function logIn(){
 					alert("Your Username or Password are incorrect");
 				}else{
 					if(reply != "noNotes"){
-						var replyArray=reply.split("/");
+						var replyArray = reply.split("/");
+						for(var i = 0; i<replyArray.length-1; i+=3){
+							displayNote(replyArray[i], replyArray[i+1], replyArray[i+2]);
+						}
 					}
 					switchToNotes();
 				}
@@ -74,13 +77,13 @@ function logIn(){
 }
 
 function signUp(){
-	if (!validateField("signUpName")){
+	if (!validateField("signupName")){
 		alert("Please enter a username");
-	}else if(!validateField("signUpPassword")){
+	}else if(!validateField("signupPassword")){
 		alert("Please enter a password");
 	}else if(!validateField("confirmPassword")){
 		alert("Please confirm your password");
-	}else if(!passwordMatch("signUpPassword","confirmPassword")){
+	}else if(!passwordMatch("signupPassword","confirmPassword")){
 		alert("Passwords don't match!");
 	}else if(!validateField("firstName")){
 		alert("Please enter your first name");
@@ -91,6 +94,9 @@ function signUp(){
 	}else{
 		var signupName = document.getElementById("signupName").value;
 		var password = document.getElementById("signupPassword").value;
+		var firstName = document.getElementById("firstName").value;
+		var lastName = document.getElementById("lastName").value;
+		var email = document.getElementById("email").value;
 
 		//Ajax communicates to the php files and databse
 		var ajax = new XMLHttpRequest();
@@ -107,6 +113,19 @@ function signUp(){
 			}
 		}
 		ajax.send("signupName="+ signupName +" & signupPassword="+ password+" & firstName="+ firstName+" & lastName="+ lastName+" & email="+ email);
+	
+	}
+}
+
+function addNote(){
+	if (!validateField("title")){
+		alert("Please enter a title");
+	}else if(!validateField("date")){
+		alert("Please enter a date");
+	}else if(!validateField("notecontent")){
+		alert("Please enter your note content");
+	}else{
+
 	}
 }
 
@@ -130,12 +149,12 @@ function validateField(id){
 	}
 }
 
-function displayNote(title, date, content){
+function displayNote(title, date, contents){
 	var possiblyEmpty = document.getElementById("notesPanel").innerHTML;
 	if(possiblyEmpty.search("<h2> No Notes to Show </h2>")>=0){
 		possiblyEmpty = "<h2> Notes </h2>";
 	}
-	document.getElementById("notesPanel").innerHTML += "<hr class='featurette-divider'><div class='col-md-4'>" +
+	document.getElementById("notesPanel").innerHTML += "<hr class='featurette-divider' style='border-top:1px solid lightgrey;'><div class='col-md-4'>" +
 							"<h3>"+title+"</h3>" +
 							"<h2>"+date+"</h2>" +
 							"<p>"+ contents+"</p>" +

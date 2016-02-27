@@ -52,12 +52,12 @@
             <div class="container">
                 <h2>Sign Up</h2>
 				<div class="form-group">
-				   <label for="signUpName">Username:</label>
-				   <input class="form-control" id="signUpName">
+				   <label for="signupName">Username:</label>
+				   <input class="form-control" id="signupName">
 				</div>
 				<div class="form-group">
-					<label for="signUpPassword">Password:</label>
-					<input type="password" class="form-control" id="signUpPassword">
+					<label for="signupPassword">Password:</label>
+					<input type="password" class="form-control" id="signupPassword">
 				</div>
 				<div class="form-group">
 					<label for="confirmPwd">Confirm Password:</label>
@@ -95,11 +95,15 @@
                     <label for="title">Title:</label>
                     <input type="text" class="form-control" id="title">
                 </div>
+				<div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="text" class="form-control" id="date">
+                </div>
                 <div class="form-group">
-                    <label for="notecontent">Note content: </label>
+                    <label for="notecontent">Note Content: </label>
                     <textarea class="form-control" cols="10" rows="7" id="notecontent" name="notecontent"></textarea>
                 </div>
-                <button type="submit" class="btn btn-default">Add Note</button>
+                <button onclick="addNote()">Add Note</button>
             </div>
         </div>
     </body>

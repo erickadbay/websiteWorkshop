@@ -16,6 +16,7 @@ if(isset($_POST["loginName"])){
 		}else if ($query_num_rows == 1){
 			$id = mysql_result($query_run, 0, "UserID");
 			$query2 = "SELECT * FROM Notes WHERE UserID = '$id'";
+			$_SESSION["id"]=$id;
 			if($query_run2 = mysql_query($query2)){
 				$query_num_rows = mysql_num_rows($query_run2);
 				
@@ -48,10 +49,17 @@ if(isset($_POST["loginName"])){
 	$query = "INSERT INTO Users VALUES('','$username','$passwordmd5','$firstName','$lastName','$email')";
 	if($query_run = mysql_query($query)){
 		$query_num_rows = mysql_num_rows($query_run);
-		if($query_num_rows == 0){
-			 echo "noUser";
-		}else if ($query_num_rows == 1){
-			echo "Worked";
+		if($query_num_rows == 1){
+			 echo "takenUser";
+		}else if ($query_num_rows == 0){
+			$query2 = "SELECT * FROM Users WHERE Username = '$username' AND Password = '$passwordmd5'";
+			if($query_run2 = mysql_query($query2)){
+				$id = mysql_result($query_run2, 0, "UserID");
+				$_SESSION["id"]=$id;
+				echo "Worked";
+			}else{
+				echo mysql_error();
+			}
 		}
 	}else{
 		echo mysql_error();
