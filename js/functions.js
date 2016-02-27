@@ -115,10 +115,10 @@ function validateField(id){
 
 function displayNote(title, date, content){
 	var possiblyEmpty = document.getElementById("notesPanel").innerHTML;
-	if(possiblyEmpty=="<h2> No Notes to Show </h2>"){
-		possiblyEmpty = "";
+	if(possiblyEmpty.search("<h2> No Notes to Show </h2>")>=0){
+		possiblyEmpty = "<h2> Notes </h2>";
 	}
-	document.getElementById("notesPanel").innerHTML += "<div class='col-md-4'>" +
+	document.getElementById("notesPanel").innerHTML += "<hr class='featurette-divider'><div class='col-md-4'>" +
 							"<h3>"+title+"</h3>" +
 							"<h2>"+date+"</h2>" +
 							"<p>"+ contents+"</p>" +
