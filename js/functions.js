@@ -29,7 +29,7 @@ function switchToNotes(){
 	document.getElementById("notes").style.display = "Block";
 	document.getElementById("newNote").style.display = "None";
 	
-	document.getElementById("icon").innerHTML = "<a class='navbar-brand' href='#'  onClick='switchToAddNote()' style='padding-top:5px'>"+
+	document.getElementById("icon").innerHTML = "<a class='navbar-brand' href='#'  onClick='switchToNotes()' style='padding-top:5px'>"+
                         "<img alt='Brand' src='assets/homeIcon.png' style='width:200px'>"+
                     "</a>";
 	document.getElementById("cornerButtonBox").innerHTML = "<li><a  onclick='switchToAddNote()'>Add Note</a></li>";
