@@ -14,7 +14,22 @@ if(isset($_POST["loginName"])){
 		if($query_num_rows == 0){
 			 echo "noUser";
 		}else if ($query_num_rows == 1){
-			echo "Worked";
+			$id = mysql_result($query_run, 0, "UserID");
+			$query2 = "SELECT * FROM Notes WHERE UserID = '$id'";
+			if($query_run2 = mysql_query($query2)){
+				$query_num_rows = mysql_num_rows($query_run2);
+				$reply = "";
+				for($count = 0; $count<$query_num_rows; $count++){
+					$title = mysql_result($query_run2, $count, "Title");
+					$date = mysql_result($query_run2, $count, "Date");
+					$content = mysql_result($query_run2, $count, "Content");
+					
+					$reply += $title."/".$date."/".$content."/";
+				}
+				echo $reply;
+			}else{
+				echo mysql_error();
+			}
 		}
 	}else{
 		echo mysql_error();
