@@ -23,7 +23,7 @@ if(isset($_POST["loginName"])){
 					$title = mysql_result($query_run2, $count, "Title");
 					$date = mysql_result($query_run2, $count, "Date");
 					$content = mysql_result($query_run2, $count, "Content");
-					
+
 					$reply += $title."/".$date."/".$content."/";
 				}
 				if($reply == ""){
@@ -45,7 +45,7 @@ if(isset($_POST["loginName"])){
 	$email = $_POST["email"];
 	$passwordmd5 = md5($password);
 
-	$query = "SELECT * FROM Users WHERE UserID = '' AND Username = '$username' AND Password = '$passwordmd5' AND First Name = '$firstName' AND Last Name='$lastName' AND Email = '$email' ";
+	$query = "INSERT INTO Users (UserID, Username, Password, First Name, Last Name, Email) VALUES ('','$username','$passwordmd5','$firstName','$lastName','$email');"
 
 	if($query_run = mysql_query($query)){
 		$query_num_rows = mysql_num_rows($query_run);
