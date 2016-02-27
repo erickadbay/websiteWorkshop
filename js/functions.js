@@ -28,7 +28,7 @@ function switchToNotes(){
 	document.getElementById("logInForm").style.display = "None";
 	document.getElementById("notes").style.display = "Block";
 	document.getElementById("newNote").style.display = "None";
-	
+
 	document.getElementById("icon").innerHTML = "<a class='navbar-brand' href='#'  onClick='switchToNotes()' style='padding-top:5px'>"+
                         "<img alt='Brand' src='assets/homeIcon.png' style='width:200px'>"+
                     "</a>";
@@ -50,8 +50,8 @@ function logIn(){
 		alert("Please enter a password");
 	}else{
 		var loginName = document.getElementById("loginName").value;
-		var password = document.getElementById("loginPassword").value 
-		
+		var password = document.getElementById("loginPassword").value
+
 		//Ajax communicates to the php files and databse
 		var ajax = new XMLHttpRequest();
 		ajax.open("POST","server.php",true);
@@ -63,7 +63,7 @@ function logIn(){
 					alert("Your Username or Password are incorrect");
 				}else{
 					if(reply != "noNotes"){
-						alert(reply);
+						var replyArray=reply.split("/");
 					}
 					switchToNotes();
 				}
