@@ -28,13 +28,7 @@ function switchToNotes(){
 	document.getElementById("logInForm").style.display = "None";
 	document.getElementById("notes").style.display = "Block";
 	document.getElementById("newNote").style.display = "None";
-<<<<<<< Updated upstream
-	
-	document.getElementById("icon").innerHTML = "<a class='navbar-brand' href='#'  onClick='switchToNotes()' style='padding-top:5px'>"+
-=======
-
 	document.getElementById("icon").innerHTML = "<a class='navbar-brand' href='#'  onClick='switchToAddNote()' style='padding-top:5px'>"+
->>>>>>> Stashed changes
                         "<img alt='Brand' src='assets/homeIcon.png' style='width:200px'>"+
                     "</a>";
 	document.getElementById("cornerButtonBox").innerHTML = "<li><a  onclick='switchToAddNote()'>Add Note</a></li>";
@@ -54,7 +48,6 @@ function logIn(){
 	}else if(!validateField("loginPassword")){
 		alert("Please enter a password");
 	}else{
-<<<<<<< Updated upstream
 		var loginName = document.getElementById("loginName").value;
 		var password = document.getElementById("loginPassword").value;
 		alert();
@@ -68,10 +61,6 @@ function logIn(){
 			}
 		}
 		ajax.send("loginName="+ loginName +" & password="+ password);
-		
-=======
-
->>>>>>> Stashed changes
 	}
 }
 
