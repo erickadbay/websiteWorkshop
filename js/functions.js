@@ -50,7 +50,7 @@ function logIn(){
 		alert("Please enter a password");
 	}else{
 		var loginName = document.getElementById("loginName").value;
-		var password = document.getElementById("loginPassword").value
+		var password = document.getElementById("loginPassword").value;
 
 		//Ajax communicates to the php files and databse
 		var ajax = new XMLHttpRequest();
@@ -89,7 +89,24 @@ function signUp(){
 	}else if(!validateField("email")){
 		alert("Please enter an email address");
 	}else{
+		var signupName = document.getElementById("signupName").value;
+		var password = document.getElementById("signupPassword").value;
 
+		//Ajax communicates to the php files and databse
+		var ajax = new XMLHttpRequest();
+		ajax.open("POST","server.php",true);
+		ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		ajax.onreadystatechange = function(){
+			if(ajax.readyState == 4 && ajax.status == 200){
+				var reply = ajax.responseText;
+				if(reply == "takenUser"){
+					alert("Your Username or Password are incorrect");
+				}else{
+					switchToNotes();
+				}
+			}
+		}
+		ajax.send("signupName="+ signupName +" & signupPassword="+ password+" & firstName="+ firstName+" & lastName="+ lastName+" & email="+ email);
 	}
 }
 
