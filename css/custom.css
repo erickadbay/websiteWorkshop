@@ -32,6 +32,10 @@
 #log_in_form{
     padding: 170px 0;
 }
+
+#notes .row{
+    margin: 0;
+}
 footer{
     text-align: center;
     background-color:#14A645;
