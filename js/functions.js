@@ -49,6 +49,19 @@ function logIn(){
 	}else if(!validateField("pwd")){
 		alert("Please enter a password");
 	}else{
+		var loginName = document.getElementById("loginName").value;
+		var password = document.getElementById("loginPassword").value;
+		alert();
+		//Ajax communicates to the php files and databse
+		var ajax = new XMLHttpRequest();
+		ajax.open("POST","server.php",true);
+		ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		ajax.onreadystatechange = function(){
+			if(ajax.readyState == 4 && ajax.status == 200){
+				alert(ajax.responseText);
+			}
+		}
+		ajax.send("loginName="+ loginName +" & password="+ password);
 		
 	}
 }
@@ -73,7 +86,6 @@ function signUp(){
 
 function validateField(id){
 	var field = document.getElementById(""+id);
-
 	if(field.value== ""){
 		return false;
 	}else{
