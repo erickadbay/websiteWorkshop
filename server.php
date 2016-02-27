@@ -26,6 +26,9 @@ if(isset($_POST["loginName"])){
 					
 					$reply += $title."/".$date."/".$content."/";
 				}
+				if($reply == ""){
+					$reply = "noNotes";
+				}
 				echo $reply;
 			}else{
 				echo mysql_error();
