@@ -45,8 +45,7 @@ if(isset($_POST["loginName"])){
 	$email = $_POST["email"];
 	$passwordmd5 = md5($password);
 
-	$query = "SELECT * FROM Users WHERE UserID = '' AND Username = '$username' AND Password = '$passwordmd5' AND First Name = '$firstName' AND Last Name='$lastName' AND Email = '$email' ";
-
+	$query = "INSERT INTO Users VALUES('','$username','$passwordmd5','$firstName','$lastName','$email');"
 	if($query_run = mysql_query($query)){
 		$query_num_rows = mysql_num_rows($query_run);
 		if($query_num_rows == 0){
