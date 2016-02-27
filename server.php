@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "connect.php";
 
 if(isset($_POST["loginName"])){
@@ -60,6 +61,36 @@ if(isset($_POST["loginName"])){
 			}else{
 				echo mysql_error();
 			}
+		}
+	}else{
+		echo mysql_error();
+	}
+}else if(isset($_POST["title"])){
+	$title = $_POST["title"];
+	$date = $_POST["date"];
+	$notecontent = $_POST["notecontent"];
+	$id = $_SESSION["id"];
+	
+	$query = "INSERT INTO Notes VALUES('','$title','$date','$notecontent','$id')";
+	if($query_run = mysql_query($query)){
+		$query = "SELECT * FROM Notes WHERE UserID = '$id'";
+		$_SESSION["id"]=$id;
+		if($query_run = mysql_query($query)){
+			$query_num_rows = mysql_num_rows($query_run);
+			
+			$reply = "";
+			for($count = 0; $count<$query_num_rows; $count++){
+				$title = mysql_result($query_run, $count, "Title");
+				$date = mysql_result($query_run, $count, "Date");
+				$content = mysql_result($query_run, $count, "Content");
+				$reply .= $title."/".$date."/".$content."/";
+			}
+			if($reply == ""){
+				$reply = "noNotes";
+			}
+			echo $reply;
+		}else{
+			echo mysql_error();
 		}
 	}else{
 		echo mysql_error();

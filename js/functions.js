@@ -63,10 +63,7 @@ function logIn(){
 					alert("Your Username or Password are incorrect");
 				}else{
 					if(reply != "noNotes"){
-						var replyArray = reply.split("/");
-						for(var i = 0; i<replyArray.length-1; i+=3){
-							displayNote(replyArray[i], replyArray[i+1], replyArray[i+2]);
-						}
+						printNotes(reply);
 					}
 					switchToNotes();
 				}
@@ -125,7 +122,24 @@ function addNote(){
 	}else if(!validateField("notecontent")){
 		alert("Please enter your note content");
 	}else{
+		var title = document.getElementById("title").value;
+		var date = document.getElementById("date").value;
+		var notecontent = document.getElementById("notecontent").value;
 
+		//Ajax communicates to the php files and databse
+		var ajax = new XMLHttpRequest();
+		ajax.open("POST","server.php",true);
+		ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		ajax.onreadystatechange = function(){
+			if(ajax.readyState == 4 && ajax.status == 200){
+				var reply = ajax.responseText;
+				if(reply != "noNotes"){
+					printNotes(reply);
+				}
+				switchToNotes();
+			}
+		}
+		ajax.send("title="+ title +" & date="+ date+" & notecontent="+ notecontent);
 	}
 }
 
@@ -159,4 +173,11 @@ function displayNote(title, date, contents){
 							"<h2>"+date+"</h2>" +
 							"<p>"+ contents+"</p>" +
 						"</div>";
+}
+
+function printNotes(reply){
+	var replyArray = reply.split("/");
+	for(var i = 0; i<replyArray.length-1; i+=3){
+		displayNote(replyArray[i], replyArray[i+1], replyArray[i+2]);
+	}
 }
