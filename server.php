@@ -39,7 +39,7 @@ if(isset($_POST["loginName"])){
 	}
 }else if(isset($_POST["signupName"])){
 	$username = $_POST["signupName"];
-	$password = $_POST["signUpPassword"];
+	$password = $_POST["signupPassword"];
 	$firstName = $_POST["firstName"];
 	$lastName = $_POST["lastName"];
 	$email = $_POST["email"];
