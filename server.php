@@ -71,7 +71,7 @@ if(isset($_POST["loginName"])){
 	$notecontent = $_POST["notecontent"];
 	$id = $_SESSION["id"];
 	
-	$query = "INSERT INTO Notes VALUES('','$title','$date','$notecontent','$id')";
+	$query = "INSERT INTO Notes VALUES('','$title','$notecontent','$date','$id')";
 	if($query_run = mysql_query($query)){
 		$query = "SELECT * FROM Notes WHERE UserID = '$id'";
 		$_SESSION["id"]=$id;
