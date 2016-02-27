@@ -28,8 +28,13 @@ function switchToNotes(){
 	document.getElementById("logInForm").style.display = "None";
 	document.getElementById("notes").style.display = "Block";
 	document.getElementById("newNote").style.display = "None";
+<<<<<<< Updated upstream
 	
 	document.getElementById("icon").innerHTML = "<a class='navbar-brand' href='#'  onClick='switchToNotes()' style='padding-top:5px'>"+
+=======
+
+	document.getElementById("icon").innerHTML = "<a class='navbar-brand' href='#'  onClick='switchToAddNote()' style='padding-top:5px'>"+
+>>>>>>> Stashed changes
                         "<img alt='Brand' src='assets/homeIcon.png' style='width:200px'>"+
                     "</a>";
 	document.getElementById("cornerButtonBox").innerHTML = "<li><a  onclick='switchToAddNote()'>Add Note</a></li>";
@@ -44,11 +49,12 @@ function switchToAddNote(){
 }
 
 function logIn(){
-	if (!validateField("username")){
+	if (!validateField("loginName")){
 		alert("Please enter a username");
-	}else if(!validateField("pwd")){
+	}else if(!validateField("loginPassword")){
 		alert("Please enter a password");
 	}else{
+<<<<<<< Updated upstream
 		var loginName = document.getElementById("loginName").value;
 		var password = document.getElementById("loginPassword").value;
 		alert();
@@ -63,16 +69,21 @@ function logIn(){
 		}
 		ajax.send("loginName="+ loginName +" & password="+ password);
 		
+=======
+
+>>>>>>> Stashed changes
 	}
 }
 
 function signUp(){
-	if (!validateField("username")){
+	if (!validateField("signUpName")){
 		alert("Please enter a username");
-	}else if(!validateField("pwd")){
+	}else if(!validateField("signUpPassword")){
 		alert("Please enter a password");
-	}else if(!validateField("confirmPwd")){
+	}else if(!validateField("confirmPassword")){
 		alert("Please confirm your password");
+	}else if(!passwordMatch("signUpPassword","confirmPassword")){
+		alert("Passwords don't match!");
 	}else if(!validateField("firstName")){
 		alert("Please enter your first name");
 	}else if(!validateField("lastName")){
@@ -80,7 +91,18 @@ function signUp(){
 	}else if(!validateField("email")){
 		alert("Please enter an email address");
 	}else{
-		
+
+	}
+}
+
+function passwordMatch(id1, id2){
+	var pwd1=document.getElementById(""+id1);
+	var pwd2=document.getElementById(""+id2);
+
+	if(pwd1.value==pwd2.value){
+		return true;
+	}else{
+		return false;
 	}
 }
 
